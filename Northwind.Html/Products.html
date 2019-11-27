@@ -13,7 +13,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
 <script>
-    const urlApiProdutos = "http://localhost:50474/Products.html";
+    const urlApiProdutos = "http://localhost:50170/api/Products";
 
     $("#jsGrid").jsGrid({
         width: "100%",
@@ -50,5 +50,30 @@
             url: urlApiProdutos
         });
     }
+
+    function postProduct(produto) {
+        return $.ajax({
+            method: "POST",
+            url: urlApiProdutos,
+            data: produto
+        });
+    }
+
+    function putProduct(produto) {
+        delete produto.suppliers;
+        delete produto.categories;
+
+        return $.ajax({
+            method: "PUT",
+            url: urlApiProdutos + "/" + produto.productID,
+            data: produto
+        });
+    }
+        function deleteProduct(produto) {
+            return $.ajax({
+                method: "delete",
+                url: urlApiProdutos + "/" + produto.productID
+            });
+        }
     
 </script>
