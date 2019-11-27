@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
+using Newtonsoft.Json.Serialization;
 
 namespace Northwind.WebApi
 {
@@ -11,6 +13,9 @@ namespace Northwind.WebApi
             // Serviços e configuração da API da Web
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
+            config.EnableCors(new EnableCorsAttribute("*","*","*"));
+
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             // Rotas da API da Web
             config.MapHttpAttributeRoutes();
