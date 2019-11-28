@@ -300,6 +300,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Loja.Mvc\Loja.Mvc.csproj">
+      <Project>{2DC58F97-7DAE-4047-B28E-048F66E522AD}</Project>
+      <Name>Loja.Mvc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Northwind.Repositorios.SqlServer\Northwind.Repositorios.SqlServer.csproj">
       <Project>{bec97db8-7cb7-473e-89d3-2115eb5905eb}</Project>
       <Name>Northwind.Repositorios.SqlServer</Name>
